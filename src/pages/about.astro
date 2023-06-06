@@ -1,4 +1,7 @@
 ---
+import Navigation from "../components/Navigation.astro";
+import "../styles/global.css";
+
 const pageTitle = "About Astronomy";
 
 const identity = {
@@ -9,6 +12,10 @@ const identity = {
 };
 
 const skills = ["HTML", "CSS", "TypeScript", "React", "Astro", "Writing Docs"];
+
+const skillColor = "navy";
+const fontWeight = "bold";
+const textCase = "uppercase";
 ---
 
 <html lang='en'>
@@ -18,15 +25,24 @@ const skills = ["HTML", "CSS", "TypeScript", "React", "Astro", "Writing Docs"];
 		<meta name='viewport' content='width=device-width' />
 		<meta name='generator' content={Astro.generator} />
 		<title>{pageTitle}</title>
+		<style define:vars={{ skillColor, fontWeight, textCase }}>
+			h1 {
+				color: purple;
+				font-size: 4rem;
+			}
+			.skill {
+				color: var(--skillColor);
+				font-weight: var(--fontWeight);
+				text-transform: var(--textCase);
+			}
+		</style>
 	</head>
 	<body>
-		<a href='/'>Home</a>
-		<a href='/about/'>About</a>
-		<a href='/blog/'>Blog</a>
+		<Navigation />
 
 		<h1>{pageTitle}</h1>
 		<p>Hi 👋</p>
-		<p>My name is {identity.firstName}</p>
+		<p>My name is {identity.firstName}. I am the creator of this blog.</p>
 		<p>I live in {identity.country} and I work as a {identity.occupation}.</p>
 		<p>My hobbies are:</p>
 		<ul>
@@ -34,7 +50,7 @@ const skills = ["HTML", "CSS", "TypeScript", "React", "Astro", "Writing Docs"];
 		</ul>
 
 		<p>Technologies I work with:</p>
-		<ul>{skills.map((skill) => <li>{skill}</li>)}</ul>
+		<ul>{skills.map((skill) => <li class='skill'>{skill}</li>)}</ul>
 
 		<p>
 			Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, omnis! Ab, provident iusto. Omnis natus
