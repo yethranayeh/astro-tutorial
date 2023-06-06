@@ -1,5 +1,7 @@
 ---
-import Navigation from "../components/Navigation.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
 import "../styles/global.css";
 
 const pageTitle = "About Astronomy";
@@ -38,7 +40,7 @@ const textCase = "uppercase";
 		</style>
 	</head>
 	<body>
-		<Navigation />
+		<Header />
 
 		<h1>{pageTitle}</h1>
 		<p>Hi 👋</p>
@@ -65,5 +67,7 @@ const textCase = "uppercase";
 			animi dolorem deleniti rerum officiis fuga quod molestiae expedita accusamus velit? Dolores, quaerat, provident
 			praesentium ratione veniam maxime, vitae aliquid iure perferendis placeat voluptate?
 		</p>
+
+		<Footer />
 	</body>
 </html>
