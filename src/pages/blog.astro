@@ -3,44 +3,31 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
 import "../styles/global.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const pageTitle = "Astronomy Blog";
 ---
 
-<html lang='en'>
-	<head>
-		<meta charset='utf-8' />
-		<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-		<meta name='viewport' content='width=device-width' />
-		<meta name='generator' content={Astro.generator} />
-		<title>{pageTitle}</title>
-	</head>
-	<body>
-		<Header />
-
-		<h1>{pageTitle}</h1>
-		<article>
-			<p>
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut sequi voluptates, mollitia assumenda ipsam maiores
-				rem minus et omnis tenetur nisi amet quia voluptatum ipsum, vero optio nesciunt inventore odit. Lorem ipsum
-				dolor sit amet consectetur adipisicing elit. Veritatis omnis, nihil dicta eligendi accusamus voluptatibus.
-			</p>
-			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, omnis! Ab, provident iusto. Omnis natus
-				repellendus inventore ducimus laborum laboriosam, voluptate, rerum facere suscipit nulla ab minus iusto quas!
-				Debitis? Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, voluptates. Soluta mollitia aut
-				vero animi totam aperiam veniam maxime labore. Quasi, asperiores atque error tenetur quidem rerum reiciendis
-				soluta doloribus commodi dolorem tempore explicabo perferendis? Reiciendis doloribus provident perferendis, quia
-				culpa voluptatibus odio, pariatur consequatur, dicta magnam hic fugit sint.
-			</p>
-		</article>
-		<hr />
-		<ul>
-			<li><a href='/posts/post-1/'>Post 1</a></li>
-			<li><a href='/posts/post-2/'>Post 2</a></li>
-			<li><a href='/posts/post-3/'>Post 3</a></li>
-		</ul>
-
-		<Footer />
-	</body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+	<article>
+		<p>
+			Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut sequi voluptates, mollitia assumenda ipsam maiores
+			rem minus et omnis tenetur nisi amet quia voluptatum ipsum, vero optio nesciunt inventore odit. Lorem ipsum dolor
+			sit amet consectetur adipisicing elit. Veritatis omnis, nihil dicta eligendi accusamus voluptatibus.
+		</p>
+		<p>
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, omnis! Ab, provident iusto. Omnis natus
+			repellendus inventore ducimus laborum laboriosam, voluptate, rerum facere suscipit nulla ab minus iusto quas!
+			Debitis? Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, voluptates. Soluta mollitia aut
+			vero animi totam aperiam veniam maxime labore. Quasi, asperiores atque error tenetur quidem rerum reiciendis
+			soluta doloribus commodi dolorem tempore explicabo perferendis? Reiciendis doloribus provident perferendis, quia
+			culpa voluptatibus odio, pariatur consequatur, dicta magnam hic fugit sint.
+		</p>
+	</article>
+	<hr />
+	<ul>
+		<li><a href='/posts/post-1/'>Post 1</a></li>
+		<li><a href='/posts/post-2/'>Post 2</a></li>
+		<li><a href='/posts/post-3/'>Post 3</a></li>
+	</ul>
+</BaseLayout>

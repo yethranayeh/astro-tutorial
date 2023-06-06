@@ -1,6 +1,5 @@
 ---
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 import "../styles/global.css";
 
@@ -20,54 +19,37 @@ const fontWeight = "bold";
 const textCase = "uppercase";
 ---
 
-<html lang='en'>
-	<head>
-		<meta charset='utf-8' />
-		<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-		<meta name='viewport' content='width=device-width' />
-		<meta name='generator' content={Astro.generator} />
-		<title>{pageTitle}</title>
-		<style define:vars={{ skillColor, fontWeight, textCase }}>
-			h1 {
-				color: purple;
-				font-size: 4rem;
-			}
-			.skill {
-				color: var(--skillColor);
-				font-weight: var(--fontWeight);
-				text-transform: var(--textCase);
-			}
-		</style>
-	</head>
-	<body>
-		<Header />
+<style define:vars={{ skillColor, fontWeight, textCase }}>
+	.skill {
+		color: var(--skillColor);
+		font-weight: var(--fontWeight);
+		text-transform: var(--textCase);
+	}
+</style>
 
-		<h1>{pageTitle}</h1>
-		<p>Hi 👋</p>
-		<p>My name is {identity.firstName}. I am the creator of this blog.</p>
-		<p>I live in {identity.country} and I work as a {identity.occupation}.</p>
-		<p>My hobbies are:</p>
-		<ul>
-			{identity.hobbies.map((hobby) => <li>{hobby}</li>)}
-		</ul>
+<BaseLayout pageTitle={pageTitle}>
+	<p>Hi 👋</p>
+	<p>My name is {identity.firstName}. I am the creator of this blog.</p>
+	<p>I live in {identity.country} and I work as a {identity.occupation}.</p>
+	<p>My hobbies are:</p>
+	<ul>
+		{identity.hobbies.map((hobby) => <li>{hobby}</li>)}
+	</ul>
 
-		<p>Technologies I work with:</p>
-		<ul>{skills.map((skill) => <li class='skill'>{skill}</li>)}</ul>
+	<p>Technologies I work with:</p>
+	<ul>{skills.map((skill) => <li class='skill'>{skill}</li>)}</ul>
 
-		<p>
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, omnis! Ab, provident iusto. Omnis natus
-			repellendus inventore ducimus laborum laboriosam, voluptate, rerum facere suscipit nulla ab minus iusto quas!
-			Debitis? Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, voluptates. Soluta mollitia aut
-			vero animi totam aperiam veniam maxime labore. Quasi, asperiores atque error tenetur quidem rerum reiciendis
-			soluta doloribus commodi dolorem tempore explicabo perferendis? Reiciendis doloribus provident perferendis, quia
-			culpa voluptatibus odio, pariatur consequatur, dicta magnam hic fugit sint.
-		</p>
-		<p>
-			Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos a, non omnis repellendus amet maiores praesentium
-			animi dolorem deleniti rerum officiis fuga quod molestiae expedita accusamus velit? Dolores, quaerat, provident
-			praesentium ratione veniam maxime, vitae aliquid iure perferendis placeat voluptate?
-		</p>
-
-		<Footer />
-	</body>
-</html>
+	<p>
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, omnis! Ab, provident iusto. Omnis natus
+		repellendus inventore ducimus laborum laboriosam, voluptate, rerum facere suscipit nulla ab minus iusto quas!
+		Debitis? Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, voluptates. Soluta mollitia aut vero
+		animi totam aperiam veniam maxime labore. Quasi, asperiores atque error tenetur quidem rerum reiciendis soluta
+		doloribus commodi dolorem tempore explicabo perferendis? Reiciendis doloribus provident perferendis, quia culpa
+		voluptatibus odio, pariatur consequatur, dicta magnam hic fugit sint.
+	</p>
+	<p>
+		Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos a, non omnis repellendus amet maiores praesentium
+		animi dolorem deleniti rerum officiis fuga quod molestiae expedita accusamus velit? Dolores, quaerat, provident
+		praesentium ratione veniam maxime, vitae aliquid iure perferendis placeat voluptate?
+	</p>
+</BaseLayout>
